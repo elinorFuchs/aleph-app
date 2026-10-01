@@ -6,39 +6,39 @@
 <title>Aleph · Privacy Policy</title>
 <meta name="description" content="Aleph collects no personal information. Nothing a child does in the app leaves the phone.">
 <link rel="icon" href="../icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Assistant:wght@400;600&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600&family=Assistant:wght@400;600&display=swap">
 <style>
-/* Layered policy: brand bar, a 4-tile summary, then numbered sections with a sticky contents list beside them on wide screens. Colours come from the app icon: night purple and book-gold. */
+/* Layered policy on white: brand bar, a 4-tile summary, then numbered sections with a sticky contents list on wide screens. One brand colour (the icon's purple) for links and small accents only. */
 :root {
-  --bg: #f7f5fb; --surface: #ffffff; --ink: #1e1838; --muted: #5f5878; --line: #e6e1f0;
-  --brand: #3b2a7a; --brand-soft: #efeaf9; --gold: #b7861d; --gold-soft: #fbf3df;
-  --display: "Fredoka", "Assistant", system-ui, sans-serif;
+  --bg: #ffffff; --surface: #ffffff; --ink: #16151c; --muted: #5c5a66; --line: #e7e6ec;
+  --brand: #5b3cc4; --brand-soft: #f3f0fb; --gold: #5b3cc4; --gold-soft: #f3f0fb; --panel: #f7f7f9;
+  --display: "Rubik", "Assistant", system-ui, sans-serif;
   --body: "Assistant", "Segoe UI", system-ui, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #121022; --surface: #1b1832; --ink: #ece9f7; --muted: #aaa3c4; --line: #2c2849;
-    --brand: #b9a8ff; --brand-soft: #262043; --gold: #e8c25e; --gold-soft: #2b2513; color-scheme: dark;
+    --bg: #111114; --surface: #18181c; --ink: #ededf0; --muted: #a3a2ad; --line: #2a2a31;
+    --brand: #b3a1ff; --brand-soft: #221d36; --gold: #b3a1ff; --gold-soft: #221d36; --panel: #1c1c21; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #121022; --surface: #1b1832; --ink: #ece9f7; --muted: #aaa3c4; --line: #2c2849;
-  --brand: #b9a8ff; --brand-soft: #262043; --gold: #e8c25e; --gold-soft: #2b2513; color-scheme: dark;
+  --bg: #111114; --surface: #18181c; --ink: #ededf0; --muted: #a3a2ad; --line: #2a2a31;
+  --brand: #b3a1ff; --brand-soft: #221d36; --gold: #b3a1ff; --gold-soft: #221d36; --panel: #1c1c21; color-scheme: dark;
 }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65; }
 [hidden] { display: none !important; }
-.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
 .bar-in { max-width: 70rem; margin: 0 auto; padding-inline: 20px; padding-block: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-family: var(--display); font-weight: 600; font-size: 1.1rem; }
-.brand img { width: 36px; height: 36px; border-radius: 9px; box-shadow: 0 2px 6px rgba(30,20,70,.25); }
-.langs { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--brand-soft); }
-.langs a { font-family: var(--display); font-weight: 500; font-size: .95rem; text-decoration: none; color: var(--brand); padding: 4px 14px; border-radius: 999px; }
-.langs a[aria-current="true"] { background: var(--surface); box-shadow: 0 1px 3px rgba(30,20,70,.18); color: var(--ink); }
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.langs { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--panel); border: 1px solid var(--line); }
+.langs a { font-family: var(--display); font-weight: 500; font-size: .95rem; text-decoration: none; color: var(--muted); padding: 4px 14px; border-radius: 999px; }
+.langs a[aria-current="true"] { background: var(--ink); color: var(--bg); }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 6px; }
 main { max-width: 70rem; margin: 0 auto; padding-inline: 20px; padding-block: 8px 40px; }
 .lang { display: grid; gap: 34px; }
 .hero { padding-block: 36px 4px; display: grid; gap: 10px; max-width: 46rem; }
-h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.1rem, 5vw, 3rem); line-height: 1.1; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
+h1 { font-family: var(--display); font-weight: 600; color: var(--ink); font-size: clamp(2.1rem, 5vw, 3rem); line-height: 1.1; margin: 0; letter-spacing: -.01em; text-wrap: balance; }
 .updated { margin: 0; color: var(--muted); font-size: .95rem; }
 .lead { margin: 6px 0 0; font-size: 1.2rem; line-height: 1.55; max-width: 40rem; }
 .eyebrow { font-family: var(--display); font-weight: 500; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
@@ -54,7 +54,7 @@ h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.1rem, 5vw
 .toc li { counter-increment: t; }
 .toc a { display: flex; gap: 10px; padding: 6px 10px; border-radius: 10px; color: var(--muted); text-decoration: none; font-size: .97rem; }
 .toc a::before { content: counter(t, decimal-leading-zero); font-variant-numeric: tabular-nums; color: var(--gold); font-family: var(--display); font-size: .85rem; padding-top: 2px; }
-.toc a:hover { background: var(--brand-soft); color: var(--ink); }
+.toc a:hover { background: var(--panel); color: var(--ink); }
 .secs { display: grid; gap: 8px; max-width: 42rem; min-width: 0; }
 .sec { padding-block: 22px; border-top: 1px solid var(--line); scroll-margin-top: 84px; }
 .sec:first-child { border-top: 0; padding-top: 0; }
@@ -64,12 +64,12 @@ h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.1rem, 5vw
 .sec ul { margin: 0 0 10px; padding-inline-start: 1.25em; display: grid; gap: 4px; }
 .sec li::marker { color: var(--gold); }
 .sec a { color: var(--brand); text-underline-offset: 3px; }
-.contact { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px; border-radius: 20px; background: var(--brand-soft); }
+.contact { margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px; border-radius: 16px; background: var(--panel); border: 1px solid var(--line); }
 .contact h2 { font-family: var(--display); font-weight: 600; font-size: 1.25rem; margin: 0; }
 .contact p { margin: 2px 0 0; color: var(--muted); }
 .mailrow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
-.mail { font-weight: 600; direction: ltr; unicode-bidi: isolate; background: var(--surface); padding: 6px 12px; border-radius: 10px; overflow-wrap: anywhere; user-select: all; }
-.copy { font: inherit; font-family: var(--display); font-weight: 500; font-size: .95rem; cursor: pointer; border: 0; border-radius: 999px; padding: 6px 16px; background: var(--brand); color: var(--surface); }
+.mail { font-weight: 600; direction: ltr; unicode-bidi: isolate; background: var(--surface); border: 1px solid var(--line); padding: 6px 12px; border-radius: 10px; overflow-wrap: anywhere; user-select: all; }
+.copy { font: inherit; font-family: var(--display); font-weight: 500; font-size: .95rem; cursor: pointer; border: 0; border-radius: 999px; padding: 6px 16px; background: var(--ink); color: var(--bg); }
 .foot { color: var(--muted); font-size: .9rem; padding-top: 20px; border-top: 1px solid var(--line); }
 @media (max-width: 760px) {
   .body { grid-template-columns: minmax(0, 1fr); gap: 20px; }
@@ -94,7 +94,7 @@ h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.1rem, 5vw
     </header>
     <section class="glance" aria-label="בקצרה">
       <h2 class="eyebrow">בקצרה</h2>
-      <ul class="tiles"><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 18 18 6"/></svg></span><span><b>לא אוספים כלום</b><span>בלי חשבון, בלי שם ובלי דוא״ל.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span><span><b>הכול נשאר בטלפון</b><span>ההתקדמות וההגדרות לא נשלחות לשום מקום.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12.2 2.3 2.3 4.3-4.6"/></svg></span><span><b>בלי פרסומות ובלי מעקב</b><span>אין כלי ניתוח ואין מזהה פרסום.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><span><b>תשלום דרך Google Play</b><span>אנחנו לא רואים את פרטי התשלום.</span></span></li></ul>
+      <ul class="tiles"><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 18 18 6"/></svg></span><span><b>לא אוספים מידע</b><span>בלי חשבון, בלי שם ובלי דוא״ל.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span><span><b>הכול נשאר בטלפון</b><span>ההתקדמות וההגדרות לא נשלחות לשום מקום.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12.2 2.3 2.3 4.3-4.6"/></svg></span><span><b>בלי פרסומות ובלי מעקב</b><span>אין כלי ניתוח ואין מזהה פרסום.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><span><b>תשלום דרך Google Play</b><span>אנחנו לא רואים את פרטי התשלום.</span></span></li></ul>
     </section>
     <div class="body">
       <nav class="toc" aria-label="בדף הזה"><h2 class="eyebrow">בדף הזה</h2><ol><li><a href="#he-who">מי אנחנו</a></li><li><a href="#he-collect">מה אנחנו אוספים</a></li><li><a href="#he-device">מה נשמר בטלפון בלבד</a></li><li><a href="#he-purchase">רכישה</a></li><li><a href="#he-crash">דיווחי קריסה</a></li><li><a href="#he-children">ילדים</a></li><li><a href="#he-internet">אינטרנט</a></li><li><a href="#he-changes">שינויים במדיניות</a></li></ol></nav>
@@ -115,7 +115,7 @@ h1 { font-family: var(--display); font-weight: 600; font-size: clamp(2.1rem, 5vw
     </header>
     <section class="glance" aria-label="At a glance">
       <h2 class="eyebrow">At a glance</h2>
-      <ul class="tiles"><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 18 18 6"/></svg></span><span><b>We collect nothing</b><span>No account, no name, no email.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span><span><b>Everything stays on the phone</b><span>Progress and settings are never sent anywhere.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12.2 2.3 2.3 4.3-4.6"/></svg></span><span><b>No ads, no tracking</b><span>No analytics tools and no advertising ID.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><span><b>Payment through Google Play</b><span>We never see payment details.</span></span></li></ul>
+      <ul class="tiles"><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M6 18 18 6"/></svg></span><span><b>We collect no data</b><span>No account, no name, no email.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M10.5 18.5h3"/></svg></span><span><b>Everything stays on the phone</b><span>Progress and settings are never sent anywhere.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6z"/><path d="m8.8 12.2 2.3 2.3 4.3-4.6"/></svg></span><span><b>No ads, no tracking</b><span>No analytics tools and no advertising ID.</span></span></li><li class="tile"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5.5" width="18" height="13" rx="2.5"/><path d="M3 10h18M7 15h4"/></svg></span><span><b>Payment through Google Play</b><span>We never see payment details.</span></span></li></ul>
     </section>
     <div class="body">
       <nav class="toc" aria-label="On this page"><h2 class="eyebrow">On this page</h2><ol><li><a href="#en-who">Who we are</a></li><li><a href="#en-collect">What we collect</a></li><li><a href="#en-device">What stays on the phone</a></li><li><a href="#en-purchase">Purchases</a></li><li><a href="#en-crash">Crash reports</a></li><li><a href="#en-children">Children</a></li><li><a href="#en-internet">Internet</a></li><li><a href="#en-changes">Changes to this policy</a></li></ol></nav>
