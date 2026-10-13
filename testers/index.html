@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<!--page-->
+<title>Aleph Testers</title>
+<meta name="description" content="Families who try Aleph before its launch on Google Play get the full app as a gift.">
+<link rel="icon" href="../icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap">
+<style>
+/* The site's style A (privacy page): light grey page, white panels, the icon's water blue.
+   Layout C (Elinor's pick): the worlds up front, then the gift, then three numbered steps. */
+:root {
+  --bg: #f4f6f8; --surface: #ffffff; --ink: #16212a; --muted: #6b7984; --line: #e3e8ec;
+  --brand: #2f86a6; --brand-ink: #ffffff; --brand-soft: #eaf3f7; --panel: #eef2f5;
+  --gift: #fff6dc; --gift-line: #e9c25a; --gift-ink: #7a5300;
+  --body: "Heebo", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1418; --surface: #182027; --ink: #e8eef2; --muted: #95a3ad; --line: #26323c;
+    --brand: #7cc4e0; --brand-ink: #0f1418; --brand-soft: #16303d; --panel: #1d2730;
+    --gift: #2a2414; --gift-line: #8a6d24; --gift-ink: #f1cf76; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1418; --surface: #182027; --ink: #e8eef2; --muted: #95a3ad; --line: #26323c;
+  --brand: #7cc4e0; --brand-ink: #0f1418; --brand-soft: #16303d; --panel: #1d2730;
+  --gift: #2a2414; --gift-line: #8a6d24; --gift-ink: #f1cf76; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.65; }
+[hidden] { display: none !important; }
+a { color: var(--brand); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; border-radius: 8px; }
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.bar-in { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; }
+.brand img { width: 34px; height: 34px; border-radius: 9px; }
+.langs { display: inline-flex; padding: 3px; border-radius: 10px; background: var(--panel); }
+.langs a { font-weight: 500; font-size: .95rem; text-decoration: none; color: var(--muted); padding: 4px 14px; border-radius: 8px; }
+.langs a[aria-current="true"] { background: var(--ink); color: var(--bg); }
+main { max-width: 44rem; margin: 0 auto; padding-inline: 16px; padding-block: 24px 48px; }
+.lang { display: flex; flex-direction: column; gap: 28px; }
+h1 { font-size: clamp(2rem, 7vw, 2.8rem); font-weight: 800; line-height: 1.15; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+h2 { font-size: 1.3rem; font-weight: 700; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.hero { display: flex; flex-direction: column; gap: 14px; }
+.lead { color: var(--muted); font-size: 1.08rem; max-width: 62ch; }
+.banner { display: block; width: 100%; height: auto; border-radius: 18px; }
+.worlds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
+.worlds figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.worlds img { display: block; width: 100%; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; }
+.worlds figcaption { font-size: .9rem; color: var(--muted); text-align: center; line-height: 1.35; }
+.gift { background: var(--gift); border: 2px dashed var(--gift-line); border-radius: 18px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; }
+.gift svg { flex: none; width: 44px; height: 44px; }
+.gift .txt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.tag { align-self: flex-start; font-size: .82rem; font-weight: 700; color: var(--gift-ink); letter-spacing: .02em; }
+.gift strong { font-size: 1.25rem; line-height: 1.3; }
+.gift p { color: var(--ink); }
+.ask { display: flex; flex-direction: column; gap: 10px; }
+.sub { margin: 4px 0 0; font-size: 1.05rem; font-weight: 700; }
+.mark { background: color-mix(in srgb, var(--gift) 70%, transparent); border-radius: 8px; padding: 2px 6px; }
+.ask ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ask li { display: flex; gap: 10px; align-items: flex-start; }
+.ask li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: .62em; border-radius: 50%; background: var(--brand); }
+.steps { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.step { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; row-gap: 10px; }
+.num { grid-row: span 3; width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: var(--brand-ink); font-weight: 800; display: grid; place-items: center; font-size: 1.05rem; }
+.step h3 { margin: 0; font-size: 1.15rem; font-weight: 700; align-self: center; }
+.step p, .step ol { color: var(--muted); font-size: .97rem; }
+.step ol { margin: 0; padding-inline-start: 1.2em; display: flex; flex-direction: column; gap: 4px; }
+.btn { justify-self: start; display: inline-block; text-decoration: none; background: var(--brand); color: var(--brand-ink); font-weight: 700; font-size: 1.05rem; padding: 12px 24px; border-radius: 999px; }
+.code { justify-self: start; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.code span { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 1.35rem; font-weight: 700; letter-spacing: .12em; background: var(--gift); border: 2px dashed var(--gift-line); border-radius: 12px; padding: 6px 16px; direction: ltr; user-select: all; }
+.copy { font: inherit; font-weight: 600; font-size: .95rem; color: var(--brand); background: var(--brand-soft); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.small { font-size: .9rem; color: var(--muted); }
+.foot { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-direction: column; gap: 6px; font-size: .92rem; color: var(--muted); }
+.mail { direction: ltr; unicode-bidi: isolate; user-select: all; color: var(--ink); }
+@media (max-width: 420px) {
+  .gift { flex-direction: column; gap: 10px; }
+  .step { padding: 16px; column-gap: 12px; }
+}
+</style>
+<!--/head-->
+</head>
+<body>
+<div class="bar"><div class="bar-in">
+  <a class="brand" href="../"><img src="../icon.png" alt="" width="34" height="34"><span>Aleph · אלף</span></a>
+  <nav class="langs" aria-label="Language"><a href="#he" data-lang="he" lang="he">עברית</a><a href="#en" data-lang="en">English</a></nav>
+</div></div>
+<main>
+  <article class="lang" id="he" lang="he" dir="rtl">
+    <header class="hero">
+      <h1>תנו להם לגלות חוויית למידה קסומה</h1>
+      <p class="lead">למידה עצמאית באינטראקציה מתקדמת. תשכחו מעיצוב שנות ה־90: תרגול מונפש בעולמות מרהיבים שמפעילים את הדמיון.</p>
+    </header>
+    <img class="banner" src="img/worlds.jpg" alt="ארבעה עולמות באלף: ב בחול הים, ה בפרחים, ל בעלי שלכת ו־ף בכוכבים" width="1024" height="500">
+    <ul class="worlds">
+      <li><figure><img src="img/sea.jpg" alt="אות בחול מתחת לים, חציה כתובה" width="480" height="640" loading="lazy"><figcaption>חול מתחת לים</figcaption></figure></li>
+      <li><figure><img src="img/forest.jpg" alt="אות בעלי שלכת ביער, וסנאי מציץ" width="480" height="640" loading="lazy"><figcaption>עלי שלכת ביער</figcaption></figure></li>
+      <li><figure><img src="img/space.jpg" alt="אות בכתב, בכוכבים בחלל" width="480" height="640" loading="lazy"><figcaption>כוכבים בחלל, בכתב</figcaption></figure></li>
+    </ul>
+    <section class="ask">
+      <h2>מחפשים משפחות לטסטים, רגע לפני ההשקה</h2>
+      <p>לפני ש״אלף״ עולה ל־Google Play, חשוב לנו לראות אותה בידיים של ילדים אמיתיים. המטרה היא לייצר חוויית משתמש מדהימה, ולכן נשמח לכל פידבק מכם. אין דבר כזה ״קטנוני מדי״ – אנחנו רוצים לשמוע על כל פרט קטן או גדול שעבד לכם, או כזה שצריך שיפור.</p>
+      <h3 class="sub">מה אנחנו מבקשים מכם?</h3>
+      <ul>
+        <li>טלפון אנדרואיד (האפליקציה עדיין לא זמינה לאייפון).</li>
+        <li>לשחק עם הילד כמה פעמים, בקצב שלכם.</li>
+        <li>להשאיר את האפליקציה מותקנת לפחות 14 יום (דרישה טכנית של הבדיקה).</li>
+        <li>לשתף אותנו בפידבק כנה – מה אהבתם, מה לא עבד ומה כדאי לתקן.</li>
+      </ul>
+    </section>
+    <div class="gift">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="20" width="34" height="22" rx="3" fill="#f3b63f"/><rect x="5" y="14" width="38" height="8" rx="2.5" fill="#f7c95f"/><rect x="21.5" y="14" width="5" height="28" fill="#e2574c"/><path d="M24 14c-3-6-11-7-11-2 0 3 6 2 11 2zm0 0c3-6 11-7 11-2 0 3-6 2-11 2z" fill="none" stroke="#e2574c" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      <div class="txt">
+        <strong>המתנה שלכם: כל העולמות פתוחים, לתמיד</strong>
+        <p>כאות תודה, כל מי שישתתף בבדיקה יקבל קוד שפותח את האפליקציה המלאה בחינם. המתנה הזו תישאר שלכם לתמיד – והיא כוללת לא רק את מה שיש באפליקציה עכשיו, אלא גם את כל העולמות שעוד נוסיף. (מספר המקומות לבדיקה מוגבל).</p>
+      </div>
+    </div>
+    <section class="ask">
+      <h2>3 צעדים ומתחילים (מהטלפון)</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="num" aria-hidden="true">1</span>
+          <h3>נרשמים כבודקים</h3>
+          <p>נכנסים עם חשבון ה־Google שמחובר ל־Google Play בטלפון שלכם, ולוחצים על כפתור ההצטרפות בדף שייפתח.</p>
+          <a class="btn" href="https://groups.google.com/g/aleph-testers" rel="noopener">להרשמה</a>
+        </li>
+        <li class="step">
+          <span class="num" aria-hidden="true">2</span>
+          <h3>מתקינים את אלף</h3>
+          <p>לוחצים על כפתור ההצטרפות לבדיקה, ומורידים את האפליקציה מ־Google Play. (אם הדף עדיין לא מזהה את הבדיקה, פשוט חכו כמה דקות אחרי צעד 1 ונסו שוב).</p>
+          <a class="btn" href="https://play.google.com/apps/testing/com.alephkids.aleph" rel="noopener">להתקנה</a>
+        </li>
+        <li class="step">
+          <span class="num" aria-hidden="true">3</span>
+          <h3>פותחים את המתנה</h3>
+          <p>תוך יום יגיע אליכם מייל מאיתנו עם קוד מתנה אישי, וכפתור שמממש אותו ב־Google Play בלחיצה אחת.</p>
+        </li>
+      </ol>
+    </section>
+    <footer class="foot">
+      <p>אלף לא אוספת שום מידע על הילד או עליכם. <a href="../privacy/">מדיניות הפרטיות</a></p>
+      <p>שאלות והערות: <span class="mail">aleph.support@gmail.com</span></p>
+    </footer>
+  </article>
+
+  <article class="lang" id="en" lang="en" dir="ltr" hidden>
+    <header class="hero">
+      <h1>Let them discover a magical way to learn</h1>
+      <p class="lead">Independent learning through advanced interaction. Forget '90s design: animated practice in stunning worlds that spark the imagination.</p>
+    </header>
+    <img class="banner" src="img/worlds.jpg" alt="Four worlds in Aleph: ב in sea sand, ה in flowers, ל in autumn leaves and ף in stars" width="1024" height="500">
+    <ul class="worlds">
+      <li><figure><img src="img/sea.jpg" alt="A letter in sand under the sea, half traced" width="480" height="640" loading="lazy"><figcaption>Sand under the sea</figcaption></figure></li>
+      <li><figure><img src="img/forest.jpg" alt="A letter in autumn leaves, a squirrel peeking" width="480" height="640" loading="lazy"><figcaption>Leaves in the forest</figcaption></figure></li>
+      <li><figure><img src="img/space.jpg" alt="A script letter in stars in space" width="480" height="640" loading="lazy"><figcaption>Stars in space, in script</figcaption></figure></li>
+    </ul>
+    <section class="ask">
+      <h2>Looking for families to test, just before launch</h2>
+      <p>Before Aleph goes live on Google Play, it matters to us to see it in the hands of real children. Our goal is an amazing experience, so we'd love any feedback you have. Nothing is "too small" – we want to hear about every detail, big or small, that worked for you or that needs improving.</p>
+      <h3 class="sub">What do we ask of you?</h3>
+      <ul>
+        <li>An Android phone (the app isn't available for iPhone yet).</li>
+        <li>Play with your child a few times, at your own pace.</li>
+        <li>Keep the app installed for at least 14 days (a technical requirement of the test).</li>
+        <li>Share honest feedback with us – what you loved, what didn't work and what we should fix.</li>
+      </ul>
+    </section>
+    <div class="gift">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="7" y="20" width="34" height="22" rx="3" fill="#f3b63f"/><rect x="5" y="14" width="38" height="8" rx="2.5" fill="#f7c95f"/><rect x="21.5" y="14" width="5" height="28" fill="#e2574c"/><path d="M24 14c-3-6-11-7-11-2 0 3 6 2 11 2zm0 0c3-6 11-7 11-2 0 3-6 2-11 2z" fill="none" stroke="#e2574c" stroke-width="2.6" stroke-linejoin="round"/></svg>
+      <div class="txt">
+        <strong>Your gift: every world unlocked, for good</strong>
+        <p>As a thank-you, everyone who takes part in the test gets a code that unlocks the full app for free. The gift stays yours for good – and it covers not only what's in the app now, but also every world we'll add. (Testing places are limited.)</p>
+      </div>
+    </div>
+    <section class="ask">
+      <h2>3 steps to get started (on your phone)</h2>
+      <ol class="steps">
+        <li class="step">
+          <span class="num" aria-hidden="true">1</span>
+          <h3>Sign up as a tester</h3>
+          <p>Sign in with the Google account that's connected to Google Play on your phone, and tap the join button on the page that opens.</p>
+          <a class="btn" href="https://groups.google.com/g/aleph-testers" rel="noopener">Sign up</a>
+        </li>
+        <li class="step">
+          <span class="num" aria-hidden="true">2</span>
+          <h3>Install Aleph</h3>
+          <p>Tap the button to join the test, and download the app from Google Play. (If the page doesn't find the test yet, just wait a few minutes after step 1 and try again.)</p>
+          <a class="btn" href="https://play.google.com/apps/testing/com.alephkids.aleph" rel="noopener">Install</a>
+        </li>
+        <li class="step">
+          <span class="num" aria-hidden="true">3</span>
+          <h3>Open your gift</h3>
+          <p>Within a day you'll get an email from us with a personal gift code, and a button that redeems it in Google Play in one tap.</p>
+        </li>
+      </ol>
+    </section>
+    <footer class="foot">
+      <p>Aleph collects no information about your child or you. <a href="../privacy/#en">Privacy policy</a></p>
+      <p>Questions and feedback: <span class="mail">aleph.support@gmail.com</span></p>
+    </footer>
+  </article>
+</main>
+<script>
+(function () {
+  var secs = { he: document.getElementById("he"), en: document.getElementById("en") };
+  var links = document.querySelectorAll(".langs a");
+  function show(lang) {
+    Object.keys(secs).forEach(function (k) { secs[k].hidden = k !== lang; });
+    links.forEach(function (a) { a.setAttribute("aria-current", a.dataset.lang === lang ? "true" : "false"); });
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
+  }
+  function pick() { return (location.hash || "").slice(1) === "en" ? "en" : "he"; }
+  links.forEach(function (a) {
+    a.addEventListener("click", function (e) { e.preventDefault(); show(a.dataset.lang); try { history.replaceState(null, "", "#" + a.dataset.lang); } catch (_) {} });
+  });
+  window.addEventListener("hashchange", function () { show(pick()); });
+  show(pick());
+  document.querySelectorAll(".copy").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var el = document.getElementById(b.dataset.target), label = b.textContent;
+      function done() { b.textContent = b.dataset.done; setTimeout(function () { b.textContent = label; }, 1600); }
+      function select() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+      try { navigator.clipboard.writeText(el.textContent.trim()).then(done, select); } catch (_) { select(); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
