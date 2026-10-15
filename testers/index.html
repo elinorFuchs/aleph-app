@@ -66,8 +66,8 @@ p { margin: 0; }
 .sub { margin: 4px 0 0; font-size: 1.05rem; font-weight: 700; }
 .mark { background: color-mix(in srgb, var(--gift) 70%, transparent); border-radius: 8px; padding: 2px 6px; }
 .ask ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px; }
-.ask li { display: flex; gap: 10px; align-items: flex-start; }
-.ask li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: .62em; border-radius: 50%; background: var(--brand); }
+.ask ul > li { display: flex; gap: 10px; align-items: flex-start; }
+.ask ul > li::before { content: ""; flex: none; width: 8px; height: 8px; margin-top: .62em; border-radius: 50%; background: var(--brand); }
 .steps { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .step { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px 20px; display: grid; grid-template-columns: 36px minmax(0, 1fr); column-gap: 14px; row-gap: 10px; }
 .num { grid-row: span 3; width: 36px; height: 36px; border-radius: 50%; background: var(--brand); color: var(--brand-ink); font-weight: 800; display: grid; place-items: center; font-size: 1.05rem; }
