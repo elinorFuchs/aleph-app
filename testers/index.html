@@ -79,6 +79,10 @@ p { margin: 0; }
 .code span { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 1.35rem; font-weight: 700; letter-spacing: .12em; background: var(--gift); border: 2px dashed var(--gift-line); border-radius: 12px; padding: 6px 16px; direction: ltr; user-select: all; }
 .copy { font: inherit; font-weight: 600; font-size: .95rem; color: var(--brand); background: var(--brand-soft); border: 0; border-radius: 999px; padding: 8px 16px; cursor: pointer; }
 .small { font-size: .9rem; color: var(--muted); }
+.help { display: flex; flex-direction: column; gap: 8px; }
+.help details { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; }
+.help summary { cursor: pointer; font-weight: 700; color: var(--ink); }
+.help details p { margin: 8px 0 0; color: var(--muted); font-size: .97rem; }
 .foot { border-top: 1px solid var(--line); padding-top: 18px; display: flex; flex-direction: column; gap: 6px; font-size: .92rem; color: var(--muted); }
 .mail { direction: ltr; unicode-bidi: isolate; user-select: all; color: var(--ink); }
 @media (max-width: 420px) {
@@ -145,6 +149,16 @@ p { margin: 0; }
         </li>
       </ol>
     </section>
+    <section class="ask help">
+      <h2>נתקעתם? הנה הפתרונות הנפוצים</h2>
+      <details><summary>הדף של צעד 1 לא נפתח, או שכתוב Content unavailable</summary><p>פתחו את הקישור ב־Chrome, וודאו שאתם מחוברים לאותו חשבון Google שמחובר ל־Google Play בטלפון.</p></details>
+      <details><summary>אחרי ההצטרפות מופיעה הודעה שאין לכם הרשאה</summary><p>הכול תקין – ההצטרפות הצליחה. ממשיכים לצעד 2.</p></details>
+      <details><summary>ב־Google Play מופיעה שגיאה בהתקנה (Something went wrong)</summary><p>לוקח ל־Google זמן לעדכן את ההרשמה, לפעמים עד כמה שעות. נסו שוב מאוחר יותר. אם עדיין לא עובד: הגדרות ← אפליקציות ← Google Play Store ← אחסון ← ניקוי מטמון, ונסו שוב.</p></details>
+      <details><summary>כתוב שהמכשיר לא תואם</summary><p>אלף דורשת אנדרואיד 8 ומעלה. כתבו לנו את דגם הטלפון ונבדוק.</p></details>
+      <details><summary>הקוד לא הגיע</summary><p>בדקו בתיקיית הספאם ובקידומי מכירות. אם הוא לא שם, כתבו לנו.</p></details>
+      <details><summary>מימשתי את הקוד, אבל העולמות עדיין סגורים</summary><p>סגרו את האפליקציה לגמרי, ופתחו אותה שוב כשהטלפון מחובר לאינטרנט.</p></details>
+      <p class="small">לכל שאלה אחרת: <span class="mail">aleph.support@gmail.com</span></p>
+    </section>
     <footer class="foot">
       <p>אלף לא אוספת שום מידע על הילד או עליכם. <a href="../privacy/">מדיניות הפרטיות</a></p>
       <p>שאלות והערות: <span class="mail">aleph.support@gmail.com</span></p>
@@ -201,6 +215,16 @@ p { margin: 0; }
           <p>Within a few hours you'll get an email from us with a personal gift code, and a button that redeems it in Google Play in one tap.</p>
         </li>
       </ol>
+    </section>
+    <section class="ask help">
+      <h2>Stuck? Here are the common fixes</h2>
+      <details><summary>The step 1 page doesn't open, or says Content unavailable</summary><p>Open the link in Chrome, and make sure you're signed in with the same Google account that's connected to Google Play on your phone.</p></details>
+      <details><summary>After joining, a message says you don't have permission</summary><p>All good – you've joined. Go on to step 2.</p></details>
+      <details><summary>Google Play shows an error when installing (Something went wrong)</summary><p>Google takes a while to update your sign-up, sometimes up to a few hours. Try again later. If it still doesn't work: Settings → Apps → Google Play Store → Storage → Clear cache, then try again.</p></details>
+      <details><summary>It says your device isn't compatible</summary><p>Aleph needs Android 8 or newer. Send us your phone model and we'll check.</p></details>
+      <details><summary>The code didn't arrive</summary><p>Check your spam and Promotions folders. If it isn't there, write to us.</p></details>
+      <details><summary>I redeemed the code, but the worlds are still locked</summary><p>Close the app completely, then open it again while your phone is online.</p></details>
+      <p class="small">Anything else: <span class="mail">aleph.support@gmail.com</span></p>
     </section>
     <footer class="foot">
       <p>Aleph collects no information about your child or you. <a href="../privacy/#en">Privacy policy</a></p>
