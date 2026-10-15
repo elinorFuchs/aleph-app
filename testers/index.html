@@ -49,11 +49,10 @@ h2 { font-size: 1.3rem; font-weight: 700; margin: 0; text-wrap: balance; }
 p { margin: 0; }
 .hero { display: flex; flex-direction: column; gap: 14px; }
 .lead { color: var(--muted); font-size: 1.08rem; max-width: 62ch; }
-.banner { display: block; width: 100%; height: auto; border-radius: 18px; }
+.banner { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 18px; }
 .worlds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0; padding: 0; list-style: none; }
 .worlds figure { margin: 0; display: flex; flex-direction: column; gap: 6px; }
-.worlds img { display: block; width: 100%; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 14px; }
-.worlds figcaption { font-size: .9rem; color: var(--muted); text-align: center; line-height: 1.35; }
+.worlds img { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 14px; }
 .gift { background: var(--gift); border: 2px dashed var(--gift-line); border-radius: 18px; padding: 18px 20px; display: flex; gap: 16px; align-items: flex-start; }
 .gift svg { flex: none; width: 44px; height: 44px; }
 .gift .txt { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
@@ -94,14 +93,14 @@ p { margin: 0; }
 <main>
   <article class="lang" id="he" lang="he" dir="rtl">
     <header class="hero">
-      <h1>תנו להם לגלות חוויית למידה קסומה</h1>
+      <h1>חוויית למידה קסומה</h1>
       <p class="lead">למידה עצמאית באינטראקציה מתקדמת. תשכחו מעיצוב שנות ה־90: תרגול מונפש בעולמות מרהיבים שמפעילים את הדמיון.</p>
     </header>
     <img class="banner" src="img/worlds.jpg" alt="ארבעה עולמות באלף: ב בחול הים, ה בפרחים, ל בעלי שלכת ו־ף בכוכבים" width="1024" height="500">
     <ul class="worlds">
-      <li><figure><img src="img/sea.jpg" alt="אות בחול מתחת לים, חציה כתובה" width="480" height="640" loading="lazy"><figcaption>חול מתחת לים</figcaption></figure></li>
-      <li><figure><img src="img/forest.jpg" alt="אות בעלי שלכת ביער, וסנאי מציץ" width="480" height="640" loading="lazy"><figcaption>עלי שלכת ביער</figcaption></figure></li>
-      <li><figure><img src="img/space.jpg" alt="אות בכתב, בכוכבים בחלל" width="480" height="640" loading="lazy"><figcaption>כוכבים בחלל, בכתב</figcaption></figure></li>
+      <li><figure><img src="img/sea.jpg" alt="אות בחול מתחת לים, חציה כתובה" width="540" height="960" loading="lazy"></figure></li>
+      <li><figure><img src="img/forest.jpg" alt="אות בעלי שלכת ביער, וסנאי מציץ" width="540" height="960" loading="lazy"></figure></li>
+      <li><figure><img src="img/space.jpg" alt="אות בכתב, בכוכבים בחלל" width="540" height="960" loading="lazy"></figure></li>
     </ul>
     <section class="ask">
       <h2>מחפשים משפחות לטסטים, רגע לפני ההשקה</h2>
@@ -139,7 +138,7 @@ p { margin: 0; }
         <li class="step">
           <span class="num" aria-hidden="true">3</span>
           <h3>פותחים את המתנה</h3>
-          <p>תוך יום יגיע אליכם מייל מאיתנו עם קוד מתנה אישי, וכפתור שמממש אותו ב־Google Play בלחיצה אחת.</p>
+          <p>תוך כמה שעות יגיע אליכם מייל מאיתנו עם קוד מתנה אישי, וכפתור שמממש אותו ב־Google Play בלחיצה אחת.</p>
         </li>
       </ol>
     </section>
@@ -151,14 +150,14 @@ p { margin: 0; }
 
   <article class="lang" id="en" lang="en" dir="ltr" hidden>
     <header class="hero">
-      <h1>Let them discover a magical way to learn</h1>
+      <h1>A magical way to learn</h1>
       <p class="lead">Independent learning through advanced interaction. Forget '90s design: animated practice in stunning worlds that spark the imagination.</p>
     </header>
     <img class="banner" src="img/worlds.jpg" alt="Four worlds in Aleph: ב in sea sand, ה in flowers, ל in autumn leaves and ף in stars" width="1024" height="500">
     <ul class="worlds">
-      <li><figure><img src="img/sea.jpg" alt="A letter in sand under the sea, half traced" width="480" height="640" loading="lazy"><figcaption>Sand under the sea</figcaption></figure></li>
-      <li><figure><img src="img/forest.jpg" alt="A letter in autumn leaves, a squirrel peeking" width="480" height="640" loading="lazy"><figcaption>Leaves in the forest</figcaption></figure></li>
-      <li><figure><img src="img/space.jpg" alt="A script letter in stars in space" width="480" height="640" loading="lazy"><figcaption>Stars in space, in script</figcaption></figure></li>
+      <li><figure><img src="img/sea.jpg" alt="A letter in sand under the sea, half traced" width="540" height="960" loading="lazy"></figure></li>
+      <li><figure><img src="img/forest.jpg" alt="A letter in autumn leaves, a squirrel peeking" width="540" height="960" loading="lazy"></figure></li>
+      <li><figure><img src="img/space.jpg" alt="A script letter in stars in space" width="540" height="960" loading="lazy"></figure></li>
     </ul>
     <section class="ask">
       <h2>Looking for families to test, just before launch</h2>
@@ -196,7 +195,7 @@ p { margin: 0; }
         <li class="step">
           <span class="num" aria-hidden="true">3</span>
           <h3>Open your gift</h3>
-          <p>Within a day you'll get an email from us with a personal gift code, and a button that redeems it in Google Play in one tap.</p>
+          <p>Within a few hours you'll get an email from us with a personal gift code, and a button that redeems it in Google Play in one tap.</p>
         </li>
       </ol>
     </section>
