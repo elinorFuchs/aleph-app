@@ -1,0 +1,86 @@
+/* Aleph website: soap-film style (the app's parents' area look).
+   Without JavaScript or WebGL this file alone draws the bubbles (clear film, rainbow rim, shine).
+   With them, film.js paints a live soap film under every [data-film] element and adds .film-on. */
+@font-face {
+  font-family: "Varela Round";
+  src: url("varela-round.woff2") format("woff2");
+  font-display: swap;
+}
+/* Layout: one calm reading column over a soft sky; bubbles mark the things you can touch or read as a group. */
+:root {
+  --ink: #1f2d47;
+  --muted: #4a5870;
+  --link: #2b4f7a;
+  --sky-top: #cdd8e0; --sky-mid: #e6e2dc; --sky-foot: #efe6dc;
+  --bar: rgba(222, 226, 230, .9);
+  --warm: rgba(255, 206, 120, .72);
+  --rim: conic-gradient(from 215deg, #e08cb8, #e6b950, #6cc4a2, #7b9ee6, #a984de, #e08cb8);
+  --font: "Varela Round", "Heebo", "Segoe UI", system-ui, sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { background: var(--sky-mid); }
+body {
+  margin: 0; color: var(--ink); font-family: var(--font);
+  background: linear-gradient(var(--sky-top), var(--sky-mid) 60%, var(--sky-foot)) fixed;
+}
+b, strong, h1, h2, h3, summary { font-weight: 400; }
+a { color: var(--link); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 999px; }
+#film { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
+body > *:not(#film):not(.bar) { position: relative; z-index: 1; }
+
+/* ---- the bubble film, CSS version ---- */
+[data-film] { position: relative; }
+[data-film="panel"], [data-film="cap"] {
+  background: radial-gradient(140% 120% at 28% 0%, rgba(255,255,255,.72), rgba(255,255,255,.5) 55%, rgba(255,255,255,.4));
+  box-shadow: inset 0 0 14px rgba(255,255,255,.7), inset 0 -8px 16px rgba(150,130,230,.12);
+}
+[data-film="panel"]::before, [data-film="cap"]::before, [data-film="round"]::before {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.7px; pointer-events: none;
+  background: var(--rim);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+}
+[data-film="panel"]::after, [data-film="cap"]::after {
+  content: ""; position: absolute; top: 3px; left: 9%; width: 34%; max-width: 160px; height: 5px; border-radius: 5px; pointer-events: none;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.95) 45%, rgba(255,255,255,0));
+}
+[data-film="round"] {
+  border-radius: 50%;
+  background: radial-gradient(circle at 34% 28%, rgba(255,255,255,.85) 0 7%, rgba(255,255,255,0) 14%),
+              radial-gradient(circle, rgba(255,255,255,.06) 55%, rgba(220,200,255,.35) 72%, rgba(255,255,255,.55) 100%);
+}
+[data-film="rim"] { box-shadow: 0 0 0 2px rgba(255,255,255,.75), 0 0 0 3.5px rgba(169,132,222,.45); }
+[data-film="cap"][aria-current="true"] { background: radial-gradient(140% 120% at 28% 0%, #fff, rgba(255,255,255,.88)); }
+.warm { background-image: radial-gradient(70px 44px at var(--warm-x, 24px) 50%, var(--warm), rgba(255,206,120,0)) !important; }
+
+/* ---- live film on: the canvas draws the surfaces, CSS keeps only the warm glow ---- */
+.film-on main [data-film] { background: none; box-shadow: none; }
+.film-on main [data-film]::before, .film-on main [data-film]::after { display: none; }
+.film-on main [data-film="rim"] { box-shadow: none; }
+
+/* ---- shared parts: top bar, language chips ---- */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 3 !important; background: var(--bar); }
+.bar-in { margin: 0 auto; padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-size: 1.05rem; }
+.brand img { width: 34px; height: 34px; border-radius: 50%; box-shadow: 0 0 0 1.5px rgba(255,255,255,.85); }
+.langs { display: inline-flex; gap: 6px; }
+.langs a[aria-current="false"] { color: var(--muted); }
+.langs a { display: inline-flex; align-items: center; min-height: 32px; padding: 0 14px; border-radius: 999px; text-decoration: none; color: var(--ink); font-size: .95rem; }
+.mail { direction: ltr; unicode-bidi: isolate; }
+
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+
+/* ---- print: plain and readable ---- */
+@media print {
+  #film { display: none !important; }
+  html, body { background: #fff !important; color: #000; }
+  .bar { position: static; background: none; }
+  .langs, .copy { display: none !important; }
+  [data-film] { background: none !important; box-shadow: none !important; border: 1px solid #ccc; }
+  [data-film]::before, [data-film]::after { display: none !important; }
+  a { color: #000; }
+}
