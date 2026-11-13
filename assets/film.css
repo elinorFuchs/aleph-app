@@ -14,7 +14,8 @@
   --sky-top: #cdd8e0; --sky-mid: #e6e2dc; --sky-foot: #efe6dc;
   --bar: rgba(222, 226, 230, .9);
   --warm: rgba(255, 206, 120, .72);
-  --rim: conic-gradient(from 215deg, #e08cb8, #e6b950, #6cc4a2, #7b9ee6, #a984de, #e08cb8);
+  /* faint thin-film tint at the edges: gold, magenta, blue, green, never a saturated stroke */
+  --rim: conic-gradient(from 215deg, rgba(226,150,196,.55), rgba(236,200,120,.5), rgba(130,200,180,.45), rgba(140,170,236,.5), rgba(190,160,230,.5), rgba(226,150,196,.55));
   --font: "Varela Round", "Heebo", "Segoe UI", system-ui, sans-serif;
   color-scheme: light;
 }
@@ -35,11 +36,12 @@ body > *:not(#film):not(.bar) { position: relative; z-index: 1; }
 [data-film] { position: relative; }
 [data-film="panel"], [data-film="cap"] {
   background: radial-gradient(140% 120% at 28% 0%, rgba(255,255,255,.72), rgba(255,255,255,.5) 55%, rgba(255,255,255,.4));
-  box-shadow: inset 0 0 14px rgba(255,255,255,.7), inset 0 -8px 16px rgba(150,130,230,.12);
+  /* a photographed film edge: thin bright line, a darker line just inside, a soft glow */
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.95), inset 0 0 0 2.4px rgba(38,48,78,.13), inset 0 0 12px rgba(255,255,255,.55);
 }
 [data-film="panel"]::before, [data-film="cap"]::before, [data-film="round"]::before {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.7px; pointer-events: none;
-  background: var(--rim);
+  content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 5px; pointer-events: none;
+  background: var(--rim); opacity: .5; filter: blur(2px);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
   mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
 }
@@ -57,8 +59,8 @@ body > *:not(#film):not(.bar) { position: relative; z-index: 1; }
 .warm { background-image: radial-gradient(70px 44px at var(--warm-x, 24px) 50%, var(--warm), rgba(255,206,120,0)) !important; }
 
 /* ---- live film on: the canvas draws the surfaces, CSS keeps only the warm glow ---- */
-.film-on main [data-film] { background: none; box-shadow: none; }
-.film-on main [data-film]::before, .film-on main [data-film]::after { display: none; }
+.film-on main [data-film]:not([data-film="cap"]) { background: none; box-shadow: none; }
+.film-on main [data-film]:not([data-film="cap"])::before, .film-on main [data-film]:not([data-film="cap"])::after { display: none; }
 .film-on main [data-film="rim"] { box-shadow: none; }
 
 /* ---- shared parts: top bar, language chips ---- */

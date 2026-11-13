@@ -42,7 +42,7 @@
     /* rim: a film ring just outside an opaque picture */
     "  if(kind>1.5){float ring=exp(-pow((sd-1.2)/1.,2.));if(ring<.01)continue;vec2 q=l/70.;",
     "   vec3 f=thinFilm(thickness(q,(l.y+R.w)/(2.*R.w)*.4+.4,seed,uTime,false),.3);",
-    "   f=clamp(mix(vec3(dot(f,vec3(.333))),f,1.6),0.,1.);col=mix(col,mix(f,vec3(1.),.25),ring*.85);continue;}",
+    "   f=clamp(mix(vec3(dot(f,vec3(.333))),f,1.05),0.,1.);col=mix(col,mix(f,vec3(1.),.45),ring*.7);continue;}",
     "  float m=1.-smoothstep(-.7,.7,sd);if(m<=0.)continue;",
     "  vec2 g=vec2(sdRB(l+vec2(.5,0.),R.zw,P.x)-sdRB(l-vec2(.5,0.),R.zw,P.x),sdRB(l+vec2(0.,.5),R.zw,P.x)-sdRB(l-vec2(0.,.5),R.zw,P.x));",
     "  g=normalize(g+1e-5);float h=clamp(-sd/bev,0.,1.);float rr=1.-h;",
@@ -55,8 +55,8 @@
     "  if(P.w>1.){float k=P.w-1.;float dist=round?length(l)/R.z:-sd/min(R.z,R.w);d+=320.*exp(-pow((dist-(round?1.-k:k))/.12,2.))*(1.-k);}",
     "  vec3 film=thinFilm(d,cosI);",
     "  float F=round?(.07+.93*pow(1.-cosI,1.45)):(.05+.95*pow(1.-cosI,1.5));",
-    "  if(kind>2.5)F*=.75;",
-    "  film=clamp(mix(vec3(dot(film,vec3(.333))),film,1.55),0.,1.);",
+    "  if(kind>2.5)F*=.45;",
+    "  film=clamp(mix(vec3(dot(film,vec3(.333))),film,kind>2.5?1.05:1.55),0.,1.);",
     "  vec3 env=mix(vec3(.55,.55,.62),vec3(.9,.9,.94),smoothstep(-.45,.55,-n.y+(round?0.:.35)));",
     "  c=c*(1.-F*film*.8)+env*film*F*(round?1.2:1.1);",
     "  float sway=.04*sin(uTime*.35+seed*5.);float hl=0.;",
@@ -80,7 +80,7 @@
   function now() { return (performance.now() - t0) / 1000 + 6; }
 
   function collect() {
-    items = [].map.call(document.querySelectorAll("main [data-film]"), function (el, i) {
+    items = [].map.call(document.querySelectorAll("main [data-film]:not([data-film=\"cap\"])"), function (el, i) {
       var k = KIND[el.getAttribute("data-film")] || 0;
       var fill = parseFloat(el.getAttribute("data-fill"));
       if (isNaN(fill)) fill = k === 0 ? 0.62 : k === 3 ? 0.35 : k === 1 ? 0.06 : 0;
@@ -180,7 +180,8 @@
       root.classList.add("film-on");
       ["scroll", "resize"].forEach(function (e) { window.addEventListener(e, function () { dirty = true; }, { passive: true }); });
       document.addEventListener("click", function () { dirty = true; });
-      items.forEach(function (o) { if (o.kind === 3 || o.kind === 1) { if (o.el.matches("a,button")) press(o.el); } });
+      /* pills keep the CSS film (the same look everywhere, also in the top bar); they still squash when pressed */
+      [].forEach.call(document.querySelectorAll('[data-film="cap"], main [data-film="round"]'), function (el) { if (el.matches("a,button")) press(el); });
       requestAnimationFrame(frame);
     } catch (e) {
       if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
