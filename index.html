@@ -1,24 +1,38 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" data-film-bg="sky" data-sky-wide="assets/sky-wide.jpg" data-sky-tall="assets/sky-tall.jpg">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Aleph · אָלֶף</title>
 <link rel="icon" href="icon.png">
+<link rel="stylesheet" href="assets/film.css">
 <style>
-:root { --bg: #ffffff; --ink: #16151c; --accent: #296f9b; }
-@media (prefers-color-scheme: dark) { :root { --bg: #111114; --ink: #ededf0; --accent: #8fd0ef; color-scheme: dark; } }
-body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Assistant", system-ui, sans-serif; }
-main { max-width: 42rem; margin: 0 auto; padding: 48px 20px; display: grid; gap: 12px; }
-h1 { margin: 0; color: var(--accent); }
-a { color: var(--accent); }
+/* The home page in the app's soap-film style (2026-11-13): the rainbow sky, the icon in a bubble. */
+body::before { content: ""; position: fixed; inset: 0; z-index: 0; background: url("assets/sky-tall.jpg") center top / cover no-repeat; }
+@media (min-aspect-ratio: 1/1) { body::before { background-image: url("assets/sky-wide.jpg"); } }
+body { min-height: 100vh; min-height: 100dvh; display: grid; }
+main { margin: auto; max-width: 42rem; padding-block: 48px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: grid; justify-items: center; text-align: center; gap: 14px; }
+.icon { width: 132px; height: 132px; display: grid; place-items: center; margin-bottom: 6px; }
+.icon img { width: 98px; height: 98px; border-radius: 50%; display: block; }
+h1 { margin: 0; font-size: clamp(2.4rem, 9vw, 3.4rem); line-height: 1.1; color: var(--ink); }
+p { margin: 0; font-size: 1.15rem; }
+.links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; color: var(--muted); }
+.links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; border-radius: 999px; text-decoration: none; color: var(--ink); font-size: 1rem; }
+@media (prefers-reduced-motion: no-preference) {
+  .icon { animation: float 6.5s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-6px) rotate(1.2deg); } }
+}
+@media print { body::before { display: none; } .icon { animation: none; } }
 </style>
+<script src="assets/film.js" defer></script>
 </head>
 <body>
 <main>
+  <span class="icon" data-film="round"><img src="icon.png" alt="" width="98" height="98"></span>
   <h1>אָלֶף · Aleph</h1>
   <p>כל אות מגלה עולם.</p>
-  <p><a href="privacy/#he">מדיניות פרטיות</a> · <a href="privacy/#en" lang="en">Privacy policy</a></p>
+  <p class="links"><a href="privacy/#he" data-film="cap" data-fill=".4">מדיניות פרטיות</a> · <a href="privacy/#en" lang="en" data-film="cap" data-fill=".4">Privacy policy</a></p>
 </main>
 </body>
 </html>
