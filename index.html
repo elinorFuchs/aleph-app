@@ -18,7 +18,7 @@ main { margin: auto; max-width: 42rem; padding-block: 48px; padding-left: max(20
 h1 { margin: 0; font-size: clamp(2.4rem, 9vw, 3.4rem); line-height: 1.1; color: var(--ink); }
 p { margin: 0; font-size: 1.15rem; }
 .links { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-top: 12px; }
-.links a { display: flex; justify-content: center; align-items: center; width: 13rem; max-width: 100%; min-height: 46px; padding: 0 22px; border-radius: 999px; text-decoration: none; color: var(--ink); font-size: 1rem; }
+.links a { display: flex; justify-content: center; align-items: center; width: min(22rem, calc(100vw - 40px)); max-width: 100%; min-height: 46px; padding: 0 22px; border-radius: 999px; text-decoration: none; color: var(--ink); font-size: 1rem; }
 @media (prefers-reduced-motion: no-preference) {
   .icon { animation: float 6.5s ease-in-out infinite; }
   @keyframes float { 50% { transform: translateY(-6px) rotate(1.2deg); } }
@@ -32,7 +32,7 @@ p { margin: 0; font-size: 1.15rem; }
   <span class="icon" data-film="round"><img src="icon.png" alt="" width="98" height="98"></span>
   <h1>אָלֶף · Aleph</h1>
   <p>כל אות מגלה עולם.</p>
-  <p class="links"><a href="privacy/#he" data-film="cap" data-fill=".4">מדיניות פרטיות</a><a href="privacy/#en" lang="en" data-film="cap" data-fill=".4">Privacy policy</a></p>
+  <p class="links"><a href="https://www.instagram.com/alephkidsapp/" data-film="cap" data-fill=".4">לתוכן ועדכונים: עקבו אחרינו באינסטגרם</a><a href="privacy/#he" data-film="cap" data-fill=".4">מדיניות פרטיות</a><a href="privacy/#en" lang="en" data-film="cap" data-fill=".4">Privacy policy</a></p>
 </main>
 </body>
 </html>
